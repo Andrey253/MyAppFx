@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.animations.Shake;
 
 public class Controller {
 
@@ -85,7 +86,11 @@ public class Controller {
             System.out.println("Succsess!");
         }
         else {
-            System.out.println("No Succsess!");
+            Shake userLoginAnim = new Shake(login_field);
+            Shake userPassAnim = new Shake(password_field);
+            userLoginAnim.playAmin();
+            userPassAnim.playAmin();
+
         }
     }
 }
