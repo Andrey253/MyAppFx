@@ -2,6 +2,8 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +23,7 @@ public class Controller {
     private URL location;
 
     @FXML
-    private PasswordField password_foeld;
+    private PasswordField password_field;
 
     @FXML
     private TextField login_field;
@@ -37,7 +39,7 @@ public class Controller {
 
         authSignInButton.setOnAction(actionEvent -> {
             String loginText = login_field.getText().trim();
-            String loginPassword = password_foeld.getText().trim();
+            String loginPassword = password_field.getText().trim();
 
             if (!loginPassword.equals("") && !loginText.equals(""))
                 loginUser(loginText, loginPassword);
@@ -64,7 +66,26 @@ public class Controller {
     }
 
     private void loginUser(String loginText, String loginPassword) {
+        DatabaseHadler dbHandler = new DatabaseHadler();
+        User user = new User();
+        user.setUserName(loginText);
+        user.setPassword(loginPassword);
+        ResultSet result = dbHandler.getUser(user);
 
-
+        int counter = 0;
+        while (true){
+            try {
+                if (!result.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            counter++;
+        }
+        if (counter>0){
+            System.out.println("Succsess!");
+        }
+        else {
+            System.out.println("No Succsess!");
+        }
     }
 }

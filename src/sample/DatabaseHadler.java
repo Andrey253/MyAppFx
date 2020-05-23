@@ -1,12 +1,6 @@
 package sample;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
-
-import java.nio.channels.ClosedSelectorException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseHadler extends Configs{
 
@@ -24,8 +18,8 @@ public class DatabaseHadler extends Configs{
     }
     public void signUpUser (User user){
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" +
-                Const.USERS_FIRSSTNAME + "," + Const.USERS_LASTNAME + "," +
-                Const.USERS_USENAME + "," + Const.USERS_PASSWORD + "," +
+                Const.USERS_FIRSTNAME + "," + Const.USERS_LASTNAME + "," +
+                Const.USERS_USERNAME + "," + Const.USERS_PASSWORD + "," +
                 Const.USERS_LOCATION + "," + Const.USERS_GENDER + ")"+
                 "VALUES(?,?,?,?,?,?)";
 
@@ -41,5 +35,21 @@ public class DatabaseHadler extends Configs{
         } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
+    }
+
+    public ResultSet getUser(User user){
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " +
+                Const.USERS_USERNAME + "=? AND " + Const.USERS_PASSWORD + "=?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, user.getUserName());
+            prSt.setString(2, user.getPassword());
+            resSet = prSt.executeQuery();
+        } catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return resSet;
     }
 }
