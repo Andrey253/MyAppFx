@@ -22,8 +22,7 @@ public class DatabaseHadler extends Configs{
                 dbUser, dbPass);
         return dbConnection;
     }
-    public void signUpUser (String firstName, String lastName, String userName,
-                            String password, String location, String gender){
+    public void signUpUser (User user){
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" +
                 Const.USERS_FIRSSTNAME + "," + Const.USERS_LASTNAME + "," +
                 Const.USERS_USENAME + "," + Const.USERS_PASSWORD + "," +
@@ -32,12 +31,12 @@ public class DatabaseHadler extends Configs{
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, firstName);
-            prSt.setString(2, lastName);
-            prSt.setString(3,userName);
-            prSt.setString(4, password);
-            prSt.setString(5, location);
-            prSt.setString(6, gender);
+            prSt.setString(1, user.getFirsName());
+            prSt.setString(2, user.getLastName());
+            prSt.setString(3, user.getUserName());
+            prSt.setString(4, user.getPassword());
+            prSt.setString(5, user.getLocation());
+            prSt.setString(6, user.getGender());
             prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();

@@ -9,7 +9,7 @@
         <AnchorPane layoutY="75.0" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #fafafa;">
             <children>
                 <PasswordField fx:id="password_field" layoutX="335.0" layoutY="55.0" promptText="Пароль" style="-fx-border-color: green; -fx-border-radius: 0;" />
-                <Button fx:id="signUpButton" graphicTextGap="0.0" layoutX="223.0" layoutY="161.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #2f3466;" text="Войти" textAlignment="CENTER" textFill="#dcffca">
+                <Button fx:id="signUpButton" graphicTextGap="0.0" layoutX="181.0" layoutY="147.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #2f3466;" text="Зарегистрироваться" textAlignment="CENTER" textFill="#dcffca">
                     <font>
                         <Font name="Khmer UI" size="13.0" />
                     </font></Button>
