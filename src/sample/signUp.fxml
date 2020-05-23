@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="500.0" style="-fx-background-color: #3f3444;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUpController">
+    <children>
+        <AnchorPane layoutY="75.0" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <PasswordField fx:id="password_field" layoutX="335.0" layoutY="55.0" promptText="Пароль" style="-fx-border-color: green; -fx-border-radius: 0;" />
+                <Button fx:id="signUpButton" graphicTextGap="0.0" layoutX="223.0" layoutY="161.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #2f3466;" text="Войти" textAlignment="CENTER" textFill="#dcffca">
+                    <font>
+                        <Font name="Khmer UI" size="13.0" />
+                    </font></Button>
+            <TextField fx:id="signUpName" layoutX="14.0" layoutY="14.0" promptText="Имя" style="-fx-border-color: green; -fx-border-radius: 0;" />
+            <TextField fx:id="signUpLastName" layoutX="335.0" layoutY="14.0" promptText="Фамилия" style="-fx-border-color: green; -fx-border-radius: 0;" />
+            <TextField fx:id="login_field" layoutX="14.0" layoutY="55.0" promptText="Логин" style="-fx-border-color: green; -fx-border-radius: 0;" />
+            <CheckBox fx:id="signUpCheckBoxMale" layoutX="192.0" layoutY="82.0" mnemonicParsing="false" selected="true" text="Муж" />
+            <CheckBox fx:id="signUpCheckBoxFemale" layoutX="264.0" layoutY="82.0" mnemonicParsing="false" text="Жен" />
+            <TextField fx:id="signUpCountry" layoutX="150.0" layoutY="114.0" prefHeight="27.0" prefWidth="200.0" promptText="Страна" style="-fx-border-color: green; -fx-border-radius: 0;" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="192.0" layoutY="14.0" prefHeight="35.0" prefWidth="116.0" text="MyApp" textAlignment="CENTER" textFill="#d3cbcb">
+            <font>
+                <Font name="Aharoni Bold" size="32.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
